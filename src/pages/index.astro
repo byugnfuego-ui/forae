@@ -1,50 +1,246 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+const projects = [
+  {
+    no: "01",
+    name: "Private House",
+    type: "Residential",
+    location: "Ulaanbaatar, MN",
+    year: "2026",
+    status: "In Progress",
+  },
+  {
+    no: "02",
+    name: "House in Zaisan",
+    type: "Residential",
+    location: "Ulaanbaatar, MN",
+    year: "2026",
+    status: "Concept",
+  },
+  {
+    no: "03",
+    name: "Choyjin Lama Museum",
+    type: "Cultural",
+    location: "Ulaanbaatar, MN",
+    year: "2025",
+    status: "Competition",
+  },
+  {
+    no: "04",
+    name: "Housing Complex",
+    type: "Residential",
+    location: "Ulaanbaatar, MN",
+    year: "2025",
+    status: "Unbuilt",
+  },
+  {
+    no: "05",
+    name: "Playtime Pavilion",
+    type: "Temporary",
+    location: "Ulaanbaatar, MN",
+    year: "2024",
+    status: "Built",
+  },
+];
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YOUR STUDIO</title>
+
+    <style>
+      :global(*) {
+        box-sizing: border-box;
+      }
+
+      :global(html) {
+        background: #fff;
+      }
+
+      :global(body) {
+        margin: 0;
+        background: #fff;
+        color: #111;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 1.3;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site {
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        margin-bottom: 120px;
+      }
+
+      .studio-name {
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+      }
+
+      nav {
+        display: flex;
+        gap: 24px;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      .intro {
+        margin-bottom: 80px;
+        max-width: 500px;
+      }
+
+      .intro h1 {
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0;
+      }
+
+      .projects-header,
+      .project {
+        display: grid;
+        grid-template-columns: 60px 2fr 1fr 1.3fr 70px 120px;
+        gap: 15px;
+      }
+
+      .projects-header {
+        border-bottom: 1px solid #111;
+        padding-bottom: 8px;
+        margin-bottom: 0;
+        font-size: 11px;
+      }
+
+      .project {
+        padding: 14px 0;
+        border-bottom: 1px solid #ddd;
+        transition: opacity 0.2s ease;
+      }
+
+      .project:hover {
+        opacity: 0.45;
+      }
+
+      .project-name {
+        font-weight: 500;
+      }
+
+      footer {
+        margin-top: 120px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+      }
+
+      @media (max-width: 700px) {
+        .site {
+          padding: 15px;
+        }
+
+        header {
+          margin-bottom: 80px;
+        }
+
+        nav {
+          gap: 12px;
+        }
+
+        .projects-header {
+          display: none;
+        }
+
+        .project {
+          grid-template-columns: 40px 1fr;
+          gap: 5px 15px;
+        }
+
+        .project > div:nth-child(n+3) {
+          grid-column: 2;
+          font-size: 12px;
+        }
+
+        footer {
+          margin-top: 80px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="site">
+
+      <header>
+        <a href="/" class="studio-name">
+          YOUR STUDIO
+        </a>
+
+        <nav>
+          <a href="#projects">Projects</a>
+          <a href="#about">Office</a>
+          <a href="#contact">Contact</a>
+          <a href="https://instagram.com/" target="_blank">Instagram</a>
+        </nav>
+      </header>
+
+      <main>
+
+        <section class="intro" id="about">
+          <h1>
+            Architecture and design studio based in Ulaanbaatar, Mongolia.
+          </h1>
+        </section>
+
+        <section id="projects">
+
+          <div class="projects-header">
+            <div>NO.</div>
+            <div>PROJECT</div>
+            <div>TYPE</div>
+            <div>LOCATION</div>
+            <div>YEAR</div>
+            <div>STATUS</div>
+          </div>
+
+          {
+            projects.map((project) => (
+              <a class="project" href="#">
+                <div>{project.no}</div>
+                <div class="project-name">{project.name}</div>
+                <div>{project.type}</div>
+                <div>{project.location}</div>
+                <div>{project.year}</div>
+                <div>{project.status}</div>
+              </a>
+            ))
+          }
+
+        </section>
+
+      </main>
+
+      <footer id="contact">
+        <div>
+          Ulaanbaatar, Mongolia
+        </div>
+
+        <div>
+          info@yourstudio.com
+        </div>
+      </footer>
+
+    </div>
+  </body>
 </html>
