@@ -1,244 +1,140 @@
 ---
-const projects = [
-  {
-    no: "01",
-    name: "Private House",
-    type: "Residential",
-    location: "Ulaanbaatar, MN",
-    year: "2026",
-    status: "In Progress",
-  },
-  {
-    no: "02",
-    name: "House in Zaisan",
-    type: "Residential",
-    location: "Ulaanbaatar, MN",
-    year: "2026",
-    status: "Concept",
-  },
-  {
-    no: "03",
-    name: "Choyjin Lama Museum",
-    type: "Cultural",
-    location: "Ulaanbaatar, MN",
-    year: "2025",
-    status: "Competition",
-  },
-  {
-    no: "04",
-    name: "Housing Complex",
-    type: "Residential",
-    location: "Ulaanbaatar, MN",
-    year: "2025",
-    status: "Unbuilt",
-  },
-  {
-    no: "05",
-    name: "Playtime Pavilion",
-    type: "Temporary",
-    location: "Ulaanbaatar, MN",
-    year: "2024",
-    status: "Built",
-  },
-];
+// Энд Astro-ийн шаардлагатай скрипт бичиж болно (Одоогоор хоосон үлдээж болно)
 ---
 
-<!doctype html>
-<html lang="en">
+<html lang="mn">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>forae</title>
-
+    <title>Таны Нэр — Вэбсайт</title>
     <style>
-      :global(*) {
-        box-sizing: border-box;
-      }
-
-      :global(html) {
-        background: #fff;
-      }
-
-      :global(body) {
+      /* Ольжиатигийн вэбсайтын минималист CSS стиль */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #000;
+        background-color: #fff;
         margin: 0;
-        background: #fff;
-        color: #111;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 14px;
-        line-height: 1.3;
+        padding: 40px 20px;
       }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .site {
-        min-height: 100vh;
-        padding: 20px;
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
       }
 
       header {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        margin-bottom: 120px;
+        margin-bottom: 60px;
       }
 
-      .studio-name {
-        font-size: 16px;
-        font-weight: 500;
-        letter-spacing: -0.02em;
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0 0 20px 0;
+        letter-spacing: 1px;
       }
 
-      nav {
-        display: flex;
-        gap: 24px;
+      .contact-info {
+        margin-bottom: 30px;
       }
 
-      nav a:hover {
+      .contact-info p {
+        margin: 5px 0;
+      }
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      a:hover {
         text-decoration: underline;
       }
 
-      .intro {
-        margin-bottom: 80px;
-        max-width: 500px;
+      /* Sticky гарчиг үүсгэх хэсэг */
+      .section-title {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 10px 0;
+        margin: 40px 0 20px 0;
+        border-bottom: 1px solid #000;
+        font-size: 18px;
+        font-weight: bold;
       }
 
-      .intro h1 {
-        font-size: 14px;
-        font-weight: normal;
-        margin: 0;
+      .content-block {
+        margin-bottom: 40px;
       }
 
-      .projects-header,
-      .project {
-        display: grid;
-        grid-template-columns: 60px 2fr 1fr 1.3fr 70px 120px;
-        gap: 15px;
-      }
-
-      .projects-header {
-        border-bottom: 1px solid #111;
-        padding-bottom: 8px;
-        margin-bottom: 0;
-        font-size: 11px;
-      }
-
-      .project {
-        padding: 14px 0;
-        border-bottom: 1px solid #ddd;
-        transition: opacity 0.2s ease;
-      }
-
-      .project:hover {
-        opacity: 0.45;
-      }
-
-      .project-name {
-        font-weight: 500;
+      .content-block p {
+        margin: 0 0 15px 0;
+        text-align: justify;
       }
 
       footer {
-        margin-top: 120px;
-        display: flex;
-        justify-content: space-between;
+        margin-top: 100px;
         font-size: 12px;
-      }
-
-      @media (max-width: 700px) {
-        .site {
-          padding: 15px;
-        }
-
-        header {
-          margin-bottom: 80px;
-        }
-
-        nav {
-          gap: 12px;
-        }
-
-        .projects-header {
-          display: none;
-        }
-
-        .project {
-          grid-template-columns: 40px 1fr;
-          gap: 5px 15px;
-        }
-
-        .project > div:nth-child(n+3) {
-          grid-column: 2;
-          font-size: 12px;
-        }
-
-        footer {
-          margin-top: 80px;
-        }
+        color: #666;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
       }
     </style>
   </head>
-
   <body>
-    <div class="site">
-
+    <div class="container">
+      
+      <!-- Толгой хэсэг: Таны нэр болон холбоо барих хаяг -->
       <header>
-        <a href="/" class="studio-name">
-          forae
-        </a>
-
+        <h1>ТАНИЙ НЭР БУЮУ БРЭНД</h1>
+        <div class="contact-info">
+          <p>Таны Мэргэжил / Чиглэл</p>
+          <p>Улаанбаатар, Монгол улс</p>
+          <p>Мэйл: <a href="mailto:таны@forae.net">таны@forae.net</a></p>
+          <p>Утас: +976 99XX XXXX</p>
+        </div>
+        
+        <!-- Хурдан шилжих холбоосууд -->
         <nav>
-          <a href="#projects">Projects</a>
-          <a href="#about">Office</a>
-          <a href="#contact">Contact</a>
-          <a href="https://instagram.com/" target="_blank">Instagram</a>
+          <a href="#about">↓ Намтар</a> | 
+          <a href="#projects">↓ Төслүүд</a> | 
+          <a href="#contact">↓ Холбоо барих</a>
         </nav>
       </header>
 
-      <main>
-
-        <section class="intro" id="about">
-          <h1>
-            Architecture and design studio based in Ulaanbaatar, Mongolia.
-          </h1>
-        </section>
-
-        <section id="projects">
-
-          <div class="projects-header">
-            <div>NO.</div>
-            <div>PROJECT</div>
-            <div>TYPE</div>
-            <div>LOCATION</div>
-            <div>YEAR</div>
-            <div>STATUS</div>
-          </div>
-
-          {
-            projects.map((project) => (
-              <a class="project" href="#">
-                <div>{project.no}</div>
-                <div class="project-name">{project.name}</div>
-                <div>{project.type}</div>
-                <div>{project.location}</div>
-                <div>{project.year}</div>
-                <div>{project.status}</div>
-              </a>
-            ))
-          }
-
-        </section>
-
-      </main>
-
-      <footer id="contact">
-        <div>
-          Ulaanbaatar, Mongolia
+      <!-- Намтар хэсэг -->
+      <section id="about">
+        <div class="section-title">Намтар</div>
+        <div class="content-block">
+          <p>Энд өөрийнхөө тухай үндсэн мэдээлэл болон хийж байсан ажлын туршлага, үзэл баримтлалаа бичнэ. Валерио Ольжиати шиг маш энгийн, шулуухан хэрнээ утга төгөлдөр текстийг сонгоорой.</p>
+          <p>Хоёр дахь догол мөрний мэдээллийг энд оруулна. Энэхүү вэбсайт нь ямар нэгэн илүү дутуу зураг, график ашиглахгүйгээр зөвхөн текстийн хүчээр уншигчид мэдээллийг шууд хүргэх зорилготой.</p>
         </div>
+      </section>
 
-        <div>
-          info@forae.net
+      <!-- Төслүүд хэсэг -->
+      <section id="projects">
+        <div class="section-title">Төслүүд болон Бүтээлүүд</div>
+        <div class="content-block">
+          <p><strong>Төсөл 1 (2026):</strong> Төслийн тухай товч тайлбар. Ямар зорилгоор, хэнд зориулж хийсэн тухай мэдээлэл.</p>
+          <p><strong>Төсөл 2 (2025):</strong> Таны хийсэн өөр нэг бүтээл эсвэл судалгааны ажил.</p>
+          <p><strong>Төсөл 3 (2024):</strong> Өөр нэгэн чухал ажлын жагсаалт.</p>
         </div>
+      </section>
+
+      <!-- Холбоо барих хэсэг -->
+      <section id="contact">
+        <div class="section-title">Нэмэлт тэмдэглэл</div>
+        <div class="content-block">
+          <p>Энд өөрийн бусад сошиал сувгуудын линк (GitHub, LinkedIn) эсвэл өөрийн баримталдаг зарчмуудаа жагсаан бичиж болно.</p>
+        </div>
+      </section>
+
+      <!-- Хөл хэсэг -->
+      <footer>
+        <p>© {new Date().getFullYear()} Таны Нэр. Бүх эрх хуулиар хамгаалагдсан. CC BY 4.0</p>
       </footer>
 
     </div>
