@@ -2,42 +2,77 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Хайрган Хана Байшин — FORAE ARCHITECTS">
+<Layout title="FORAE ARCHITECTS — Архитектурын архив">
   <style>
-    main { width: 100%; padding: 48px 32px 0; }
-    .project-container { max-width: 900px; margin: 0 auto; }
-    .project-header { font-size: 14px; line-height: 1.6; margin-bottom: 48px; }
-    .project-title { font-weight: 500; text-decoration: underline; text-underline-offset: 3px; margin-bottom: 16px; display: block; }
-    .meta-line { color: var(--ink); }
-    .meta-label { color: var(--graphite); }
-    .project-image-wrap { width: 100%; margin-bottom: 32px; }
-    .project-image-wrap img { width: 100%; height: auto; display: block; }
-    .project-description { font-size: 14px; line-height: 1.7; color: var(--ink); max-width: 900px; font-weight: 400; text-align: justify; }
+    .list-wrap { padding: 48px 32px 0; }
+    table.project-list { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    .project-list thead th {
+      text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--graphite); padding: 0 16px 12px 0;
+    }
+    .project-list thead th.num { width: 70px; text-align: right; }
+    .project-list thead th.name { width: 34%; }
+    .project-list thead th.loc { width: 28%; }
+    .project-list thead th.status-col { width: 22%; }
+    .project-list tbody td { padding: 10px 16px 10px 0; font-size: 13px; color: var(--ink); vertical-align: top; }
+    .project-list tbody tr { transition: background .15s ease; }
+    .project-list tbody tr:hover { background: #fafaf8; }
+    .project-list td.num { color: var(--graphite); font-size: 12px; text-align: right; }
+    .project-list td.name { font-weight: 400; }
+    .project-list td.name a:hover { color: var(--graphite); }
+    .project-list td.loc { color: var(--graphite); }
+    .status { color: var(--graphite); white-space: nowrap; }
 
     @media (max-width: 560px) {
-      main { padding: 24px 18px 0; }
-      .project-header { font-size: 13px; margin-bottom: 32px; }
-      .project-description { font-size: 13px; line-height: 1.6; }
+      .list-wrap { padding: 24px 18px 0; }
+      .project-list th.loc, .project-list td.loc { display: none; }
     }
   </style>
 
   <main>
-    <div class="project-container">
-      <div class="project-header">
-        <span class="project-title">Хайрган Хана Байшин atelier house, yangpyong</span>
-        <div class="meta-line"><span class="meta-label">location :</span> Төв аймаг, Монгол Улс</div>
-        <div class="meta-line"><span class="meta-label">year :</span> 2026, 01 - барилгын ажил үргэлжилж байна</div>
-        <div class="meta-line"><span class="meta-label">use :</span> Амины орон сууц single family house</div>
-        <div class="meta-line"><span class="meta-label">area :</span> 132m² (40 пён)</div>
-      </div>
-
-      <div class="project-image-wrap">
-        <img src="/project1.jpg" alt="Atelier House Architecture Model">
-      </div>
-
-      <div class="project-description">
-        Байгалийн тогтоцтой уусгаж, хамгийн бага зардлаар бүтээлч орон зайг бий болгох зорилготой амины орон сууцны төсөл. Тэгш хэмт төлөвлөлт болон хөнгөн модон бүтцийг ашигласан бөгөөд уламжлалт хэв маягийг орчин үеийн минималист архитектуртай хослуулсан. Designed as a cost-efficient single-story house with a symmetrical plan, the project employs light wood framing as its primary structural system.
-      </div>
+    <div class="list-wrap">
+      <table class="project-list">
+        <thead>
+          <tr>
+            <th class="num">No.</th>
+            <th class="name">Project</th>
+            <th class="loc">Location</th>
+            <th class="status-col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">05</td>
+            <td class="name"><a href="/project-detail">Хайрган Хана Байшин</a></td>
+            <td class="loc">Улаанбаатар, Mongolia</td>
+            <td><span class="status">Construction</span></td>
+          </tr>
+          <tr>
+            <td class="num">04</td>
+            <td class="name"><a href="#">Дуут Сандал Студи</a></td>
+            <td class="loc">Дархан, Mongolia</td>
+            <td><span class="status">Built</span></td>
+          </tr>
+          <tr>
+            <td class="num">03</td>
+            <td class="name"><a href="#">Бетон Ном Сан</a></td>
+            <td class="loc">Эрдэнэт, Mongolia</td>
+            <td><span class="status">Competition / 1st</span></td>
+          </tr>
+          <tr>
+            <td class="num">02</td>
+            <td class="name"><a href="#">Модон Оффис Цамхаг</a></td>
+            <td class="loc">Улаанбаатар, Mongolia</td>
+            <td><span class="status">Built</span></td>
+          </tr>
+          <tr>
+            <td class="num">01</td>
+            <td class="name"><a href="#">Уулын Амны Зуслан</a></td>
+            <td class="loc">Тэрэлж, Mongolia</td>
+            <td><span class="status">Built</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </main>
 </Layout>
