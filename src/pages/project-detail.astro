@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Хайрган Хана Байшин — FORAE ARCHITECTS</title>
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff;
+    --ink:#161616;
+    --graphite:#7a7a75;
+    --hairline:#e6e5e0;
+    --sans:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    letter-spacing: -0.01em;
+  }
+  main{flex:1 0 auto; margin:0 auto; width:100%; max-width:760px;}
+  a{color:inherit; text-decoration:none;}
+
+  .header-inner{display:flex; align-items:center; justify-content:space-between; padding:20px 32px; gap:24px;}
+  .logo{font-size:16px; font-weight:500; letter-spacing:0.02em; text-transform:lowercase;}
+  nav.primary{display:flex; gap:32px; font-size:13px; letter-spacing:0.04em; font-weight:400; text-transform:lowercase;}
+  nav.primary a{color:var(--graphite);}
+  nav.primary a:hover{color:var(--ink);}
+
+  .page-wrap{padding:48px 32px 0;}
+
+  .back-link{display:inline-block; font-size:12px; color:var(--graphite); margin-bottom:32px;}
+  .back-link:hover{color:var(--ink);}
+
+  .project-head h1{font-size:18px; font-weight:500; margin-bottom:4px;}
+  .project-head .en-title{font-size:13px; color:var(--graphite); margin-bottom:20px;}
+
+  .meta-table{font-size:13px; line-height:1.9; color:var(--graphite); margin-bottom:36px;}
+  .meta-table span.label{display:inline-block; width:70px; color:var(--graphite);}
+  .meta-table span.value{color:var(--ink);}
+
+  .project-image{width:100%; margin-bottom:36px;}
+  .project-image img{width:100%; height:auto; display:block; background:#161616;}
+  .project-image .caption{font-size:11px; color:var(--graphite); margin-top:8px;}
+
+  .project-text p{font-size:14px; line-height:1.8; color:var(--ink); margin-bottom:14px;}
+  .project-text p.en{color:var(--graphite);}
+
+  footer{margin-top:80px; padding:24px 32px 32px; text-align:center;}
+  .copyright{font-size:12px; color:var(--graphite);}
+
+  @media (max-width:560px){
+    .header-inner{padding:14px 18px; flex-direction: column; align-items: flex-start; gap: 12px;}
+    nav.primary{gap: 16px;}
+    .page-wrap{padding:24px 18px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="/">forae architects</a>
+    <nav class="primary">
+      <a href="/practice">practice</a>
+      <a href="/contact">contact</a>
+      <a href="/news">news</a>
+      <a href="/reference">reference</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-wrap">
+    <a class="back-link" href="/">&larr; back to projects</a>
+
+    <div class="project-head">
+      <h1>Хайрган Хана Байшин</h1>
+      <p class="en-title">gravel wall house</p>
+    </div>
+
+    <div class="meta-table">
+      <p><span class="label">location</span><span class="value">Улаанбаатар, Mongolia</span></p>
+      <p><span class="label">year</span><span class="value">2026, 03 — construction in progress</span></p>
+      <p><span class="label">use</span><span class="value">단독주택 single family house</span></p>
+      <p><span class="label">area</span><span class="value">148m² (45평)</span></p>
+    </div>
+
+    <!-- Жинхэнэ зургаа /public/projects/ дотор байрлуулаад src-г солино уу -->
+    <div class="project-image">
+      <img src="/projects/hairgan-hana-baishin-01.jpg" alt="Хайрган Хана Байшин — модель зураг">
+      <p class="caption">model, 1:100</p>
+    </div>
+
+    <div class="project-text">
+      <p>Хайрган ханатай, дан давхар байшин бөгөөд гэр бүлийн амьдралын энгийн хэмнэлд тулгуурлан төлөвлөгдсөн. Дотоод орон зайг том цонхтой уулын харц руу нээж, гадна ханыг орон нутгийн хайрган чулуугаар өнгөлсөн нь барилгыг эргэн тойрны газарт нэгтгэдэг.</p>
+      <p class="en">A single-storey house with a gravel-clad exterior, planned around the plain rhythm of everyday family life. Large openings face the interior toward the surrounding hills, while the local gravel-stone cladding grounds the building in its site.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p class="copyright">© 2026 forae architects</p>
+</footer>
+
+</body>
+</html>
