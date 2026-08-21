@@ -1,20 +1,14 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/site-map";
-import cloudflare from "@astrojs/cloudflare";
+import sitemap from "@astrojs/sitemap";
 
-// https://astro.build
+// GitHub Pages-д зориулсан цэвэр статик тохиргоо
 export default defineConfig({
   site: "https://forae.net",
   integrations: [mdx(), sitemap()],
-  
-  // Cloudflare-ийн хуудас чиглүүлэлтийг автомат (static+dynamic) болгох тохиргоо
-  output: "hybrid", 
-  
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true,
-    },
-  }),
+  // Хуудас бүрийг бие даасан .html файл болгож үүсгэх тохиргоо
+  build: {
+    format: 'file'
+  }
 });
