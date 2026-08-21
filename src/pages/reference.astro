@@ -1,1 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
 
+<Layout title="Reference — FORAE ARCHITECTS" activePage="reference">
+  <style>
+    main { max-width: 800px; padding: 64px 32px 0; }
+    .section-title { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--graphite); margin-bottom: 24px; }
+    .text-content { font-size: 14px; line-height: 1.7; color: var(--ink); max-width: 640px; }
+    .text-content p { margin-bottom: 20px; }
+    .ref-list { list-style: none; margin-top: 24px; }
+    .ref-list li { margin-bottom: 12px; border-bottom: 1px solid var(--hairline); padding-bottom: 12px; }
+    .ref-list span { color: var(--graphite); display: inline-block; width: 60px; }
+
+    @media (max-width: 560px) {
+      main { padding: 32px 18px 0; }
+    }
+  </style>
+
+  <main>
+    <div class="section-title">References & Recognition</div>
+    <div class="text-content">
+      <p>Энэхүү хэсэгт студийн судалгааны ажил, уран бүтээлийн тэмдэглэл, онолын эх сурвалжууд болон хамтран ажилласан түншүүдийн жагсаалт, reference бичвэрүүд байрлах энгийн орон зай юм.</p>
+      
+      <ul class="ref-list">
+        <li><span>2025</span> Архитектурын шилдэг бүтээл номинаци — "Модон Оффис Цамхаг"</li>
+        <li><span>2024</span> Улаанбаатар хотын шинэ төлөвлөлтийн уралдаан — Тусгай байр</li>
+      </ul>
+    </div>
+  </main>
+</Layout>
