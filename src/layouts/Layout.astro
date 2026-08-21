@@ -2,7 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="FORAE ARCHITECTS — Архитектурын архив">
+<!-- activePage="index" гэж дамжуулав -->
+<Layout title="FORAE ARCHITECTS — Архитектурын архив" activePage="index">
   <style>
     .list-wrap { padding: 48px 32px 0; }
     table.project-list { width: 100%; border-collapse: collapse; table-layout: fixed; }
@@ -43,6 +44,7 @@ import Layout from '../layouts/Layout.astro';
         <tbody>
           <tr>
             <td class="num">05</td>
+            <!-- Төслийн дэлгэрэнгүй хуудас руу холбов -->
             <td class="name"><a href="/project-detail">Хайрган Хана Байшин</a></td>
             <td class="loc">Улаанбаатар, Mongolia</td>
             <td><span class="status">Construction</span></td>
