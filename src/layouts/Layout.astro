@@ -1,85 +1,39 @@
 ---
-// Хуудас бүрээс дамжуулж буй мэдээллийг хүлээж авах хэсэг
 const { title, activePage = "" } = Astro.props;
 ---
-
 <!DOCTYPE html>
 <html lang="mn">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style is:global>
-    :root {
-      --paper: #ffffff;
-      --ink: #161616;
-      --graphite: #7a7a75;
-      --hairline: #e6e5e0;
-      --highlight: #ffd1dc;
-      --sans: "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
-    }
+    :root { --paper: #ffffff; --ink: #161616; --graphite: #7a7a75; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      -webkit-font-smoothing: antialiased;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    a { color: inherit; text-decoration: none; }
-
-    /* Header */
-    .header-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 32px; gap: 24px;
-    }
-    .logo { font-size: 15px; font-weight: 400; letter-spacing: 0.02em; text-transform: lowercase; }
-    nav.primary { display: flex; gap: 32px; font-size: 12px; letter-spacing: 0.06em; font-weight: 500; z-index: 10; }
-    nav.primary a:hover { color: var(--graphite); }
-    
-    /* Идэвхтэй байгаа хуудсыг тодруулах стиль */
+    body { background: var(--paper); color: var(--ink); font-family: sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+    .header-inner { display: flex; justify-content: space-between; padding: 20px 32px; }
+    nav.primary { display: flex; gap: 32px; font-size: 12px; }
     nav.primary a.active { color: var(--graphite); font-weight: 600; }
-
-    /* Footer */
-    footer { margin-top: auto; padding: 24px 32px 32px; text-align: center; }
-    .copyright { font-size: 12px; letter-spacing: 0.02em; color: var(--graphite); }
-
-    /* Гар утас болон жижиг дэлгэц дээр цэсийг нуухгүй, зайг нь багасгав */
-    @media (max-width: 560px) {
-      .header-inner { padding: 14px 18px; flex-direction: column; align-items: flex-start; gap: 12px; }
-      nav.primary { gap: 16px; }
-      footer { padding: 20px 18px 28px; }
-    }
+    main { padding: 48px 32px; flex: 1; }
   </style>
 </head>
 <body>
-
   <header>
     <div class="header-inner">
       <a class="logo" href="/">forae architects</a>
-     <nav class="primary">
-  <!-- Харьцангуй замаар холбож, найдвартай шилждэг болгов -->
-  <a href="./practice/" class={activePage === 'practice' ? 'active' : ''}>practice</a>
-  <a href="./contact/" class={activePage === 'contact' ? 'active' : ''}>contact</a>
-  <a href="./news/" class={activePage === 'news' ? 'active' : ''}>news</a>
-  <a href="./reference/" class={activePage === 'reference' ? 'active' : ''}>reference</a>
-</nav>
-
+      <nav class="primary">
+        <a href="/practice" class={activePage === 'practice' ? 'active' : ''}>practice</a>
+        <a href="/contact" class={activePage === 'contact' ? 'active' : ''}>contact</a>
+        <a href="/news" class={activePage === 'news' ? 'active' : ''}>news</a>
+        <a href="/reference" class={activePage === 'reference' ? 'active' : ''}>reference</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Хуудас бүрийн үндсэн код энд орж ирнэ -->
+  <!-- БУСАД ХУУДАСНЫ ТЕКСТ ЭНД ОРЖ ИРНЭ -->
   <slot /> 
 
   <footer>
-    <p class="copyright">© 2026 forae architects</p>
+    <p style="text-align:center; padding: 24px;">© 2026 forae architects</p>
   </footer>
-
 </body>
 </html>
