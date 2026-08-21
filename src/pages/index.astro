@@ -4,128 +4,51 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FORAE ARCHITECTS — Архитектурын архив</title>
-<meta name="description" content="Орчин үеийн архитектурын төслүүдийг цуглуулсан архив">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-
   :root{
-    --paper:#ffffff;
-    --ink:#161616;
-    --graphite:#7a7a75;
-    --hairline:#e6e5e0;
-    --footer-bg:#1a1a1a;
-    --footer-text:#f2f2f0;
-    --footer-muted:#9a9a95;
-    --link:#5b8def;
+    --paper:#ffffff; --ink:#161616; --graphite:#7a7a75; --hairline:#e6e5e0;
     --sans:"Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
   }
-
   *{margin:0;padding:0;box-sizing:border-box;}
-  html,body{height:100%;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--sans);
-    -webkit-font-smoothing:antialiased;
-    display:flex;
-    flex-direction:column;
-    min-height:100vh;
-  }
-  main{flex:1 0 auto;}
-  a{color:inherit;text-decoration:none;}
-  button{font-family:var(--sans);}
+  body{background:var(--paper); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; display:flex; flex-direction:column; min-height:100vh;}
+  main{flex:1 0 auto; margin:0 auto; width:100%;}
+  a{color:inherit; text-decoration:none;}
 
-  /* ---------- header ---------- */
-  .header-inner{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:20px 32px;
-    gap:24px;
-  }
-  .logo{
-    font-size:15px;
-    font-weight:400;
-    letter-spacing:0.02em;
-    text-transform:lowercase;
-  }
-  nav.primary{
-    display:flex;gap:32px;
-    font-size:12px;
-    letter-spacing:0.06em;
-    font-weight:500;
-    color:var(--ink);
-  }
+  /* Header */
+  .header-inner{display:flex; align-items:center; justify-content:space-between; padding:20px 32px; gap:24px;}
+  .logo{font-size:15px; font-weight:400; letter-spacing:0.02em; text-transform:lowercase;}
+  nav.primary{display:flex; gap:32px; font-size:12px; letter-spacing:0.06em; font-weight:500;}
   nav.primary a:hover{color:var(--graphite);}
 
-  /* ---------- main ---------- */
-  main{margin:0 auto;width:100%;}
-
-  /* ---------- project list ---------- */
+  /* Project list */
   .list-wrap{padding:48px 32px 0;}
-  table.project-list{
-    width:100%;
-    border-collapse:collapse;
-    table-layout:fixed;
-  }
-  .project-list thead th{
-    text-align:left;
-    font-size:11px;
-    font-weight:600;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--graphite);
-    padding:0 16px 12px 0;
-  }
-  .project-list thead th.num{width:70px;text-align:right;}
+  table.project-list{width:100%; border-collapse:collapse; table-layout:fixed;}
+  .project-list thead th{text-align:left; font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--graphite); padding:0 16px 12px 0;}
+  .project-list thead th.num{width:70px; text-align:right;}
   .project-list thead th.name{width:34%;}
   .project-list thead th.loc{width:28%;}
   .project-list thead th.status-col{width:22%;}
-
-  .project-list tbody td{
-    padding:10px 16px 10px 0;
-    font-size:13px;
-    color:var(--ink);
-    vertical-align:top;
-  }
+  .project-list tbody td{padding:10px 16px 10px 0; font-size:13px; color:var(--ink); vertical-align:top;}
   .project-list tbody tr{transition:background .15s ease;}
-  .project-list tbody tr:hover{background:#fafaf8;}
-
-  .project-list td.num{
-    color:var(--graphite);
-    font-size:12px;
-    text-align:right;
-  }
+  .project-list tbody tr:hover {background:#fafaf8;}
+  .project-list td.num{color:var(--graphite); font-size:12px; text-align:right;}
   .project-list td.name{font-weight:400;}
   .project-list td.name a:hover{color:var(--graphite);}
   .project-list td.loc{color:var(--graphite);}
+  .status{color:var(--graphite); white-space:nowrap;}
 
-  .status{
-    color:var(--graphite);white-space:nowrap;
-  }
+  /* Footer */
+  footer{margin-top:80px; padding:24px 32px 32px; text-align:center;}
+  .copyright {font-size:12px; color:var(--graphite);}
 
-  /* ---------- footer ---------- */
-  footer{
-    background:var(--paper);
-    margin-top:80px;
-    padding:24px 32px 32px;
-    text-align:center;
-  }
-  .copyright{
-    font-size:12px;
-    letter-spacing:0.02em;
-    color:var(--graphite);
-  }
-
-  /* ---------- responsive ---------- */
-  @media (max-width:900px){
-    nav.primary{display:none;}
-  }
   @media (max-width:560px){
-    .header-inner{padding:14px 18px;}
+    .header-inner{padding:14px 18px; flex-direction: column; align-items: flex-start; gap: 12px;}
+    nav.primary{gap: 16px;}
     .list-wrap{padding:24px 18px 0;}
     .project-list th.loc, .project-list td.loc{display:none;}
-    footer{padding:20px 18px 28px;}
   }
 </style>
 </head>
@@ -133,12 +56,13 @@
 
 <header>
   <div class="header-inner">
-    <a class="logo" href="#">forae architects</a>
+    <a class="logo" href="/">forae architects</a>
     <nav class="primary">
-      <a href="#">practice</a>
-      <a href="#">contact</a>
-      <a href="#">news</a>
-      <a href="#">reference</a>
+      <!-- Энд Cloudflare серверт зориулж .html өргөтгөлөөр шууд холбож өглөө -->
+      <a href="/practice.html">practice</a>
+      <a href="/contact.html">contact</a>
+      <a href="/news.html">news</a>
+      <a href="/reference.html">reference</a>
     </nav>
   </div>
 </header>
@@ -157,7 +81,8 @@
       <tbody>
         <tr>
           <td class="num">05</td>
-          <td class="name"><a href="#">Хайрган Хана Байшин</a></td>
+          <!-- Төслийн дэлгэрэнгүй рүү холбосон линк -->
+          <td class="name"><a href="/project-detail.html">Хайрган Хана Байшин</a></td>
           <td class="loc">Улаанбаатар, Mongolia</td>
           <td><span class="status">Construction</span></td>
         </tr>
