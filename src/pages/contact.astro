@@ -1,1 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
 
+<Layout title="Contact — FORAE ARCHITECTS" activePage="contact">
+  <style>
+    main { max-width: 900px; width: 100%; margin: 0 auto; padding: 48px 32px 0; }
+    .contact-section { font-size: 14px; line-height: 1.6; margin-bottom: 40px; max-width: 600px; }
+    .contact-section p { margin-bottom: 16px; }
+    .contact-section a { text-decoration: underline; text-underline-offset: 3px; }
+    .contact-section a:hover { color: var(--graphite); }
+    .bold-text { font-weight: 500; }
+    .map-container { margin: 48px 0; max-width: 500px; width: 100%; }
+    .map-container img { width: 100%; height: auto; display: block; }
+    .social-links { margin-top: 48px; font-size: 14px; display: flex; flex-direction: column; gap: 8px; }
+    .social-links a { text-decoration: underline; text-underline-offset: 3px; }
+    .social-links a:hover { color: var(--graphite); }
+
+    @media (max-width: 560px) {
+      main { padding: 32px 18px 0; }
+      .map-container { margin: 32px 0; }
+    }
+  </style>
+
+  <main>
+    <div class="contact-section">
+      <p>
+        Улаанбаатар хот, Сүхбаатар дүүрэг, 1-р хороо, Чингисийн өргөн чөлөө-12<br>
+        12 Chinggis Avenue, Sukhbaatar District, 01234 Ulaanbaatar, Mongolia
+      </p>
+      <p>
+        <span class="bold-text">Төслийн захиалга / Шалгалт</span><br>
+        +976 11 32 0000<br>
+        +976 9911 0000<br>
+        <a href="mailto:info.forae@gmail.com">info.forae@gmail.com</a>
+      </p>
+      <p>
+        <a href="mailto:office.forae@gmail.com">office.forae@gmail.com</a> for a job/internship application
+      </p>
+    </div>
+
+    <div class="map-container">
+      <img src="/map.png" alt="Office Location Map / Diagram">
+    </div>
+
+    <div class="social-links">
+      <div><a href="https://instagram.com" target="_blank">instagram</a></div>
+      <div><a href="https://facebook.com" target="_blank">facebook</a></div>
+    </div>
+  </main>
+</Layout>
