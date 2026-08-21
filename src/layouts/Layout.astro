@@ -9,9 +9,9 @@ const { title, activePage = "" } = Astro.props;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style is:global>
     :root {
       --paper: #ffffff;
@@ -40,7 +40,7 @@ const { title, activePage = "" } = Astro.props;
       padding: 20px 32px; gap: 24px;
     }
     .logo { font-size: 15px; font-weight: 400; letter-spacing: 0.02em; text-transform: lowercase; }
-    nav.primary { display: flex; gap: 32px; font-size: 12px; letter-spacing: 0.06em; font-weight: 500; }
+    nav.primary { display: flex; gap: 32px; font-size: 12px; letter-spacing: 0.06em; font-weight: 500; z-index: 10; }
     nav.primary a:hover { color: var(--graphite); }
     
     /* Идэвхтэй байгаа хуудсыг тодруулах стиль */
@@ -50,9 +50,10 @@ const { title, activePage = "" } = Astro.props;
     footer { margin-top: auto; padding: 24px 32px 32px; text-align: center; }
     .copyright { font-size: 12px; letter-spacing: 0.02em; color: var(--graphite); }
 
-    @media (max-width: 900px) { nav.primary { display: none; } }
+    /* Гар утас болон жижиг дэлгэц дээр цэсийг нуухгүй, зайг нь багасгав */
     @media (max-width: 560px) {
-      .header-inner { padding: 14px 18px; }
+      .header-inner { padding: 14px 18px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      nav.primary { gap: 16px; }
       footer { padding: 20px 18px 28px; }
     }
   </style>
@@ -62,13 +63,13 @@ const { title, activePage = "" } = Astro.props;
   <header>
     <div class="header-inner">
       <a class="logo" href="/">forae architects</a>
-     <nav class="primary">
-  <a href="/practice/" class={activePage === 'practice' ? 'active' : ''}>practice</a>
-  <a href="/contact/" class={activePage === 'contact' ? 'active' : ''}>contact</a>
-  <a href="/news/" class={activePage === 'news' ? 'active' : ''}>news</a>
-  <a href="/reference/" class={activePage === 'reference' ? 'active' : ''}>reference</a>
-</nav>
-
+      <nav class="primary">
+        <!-- Төгсгөлийн налуу зураасыг Astro-д зориулж хэвээр үлдээв -->
+        <a href="/practice/" class={activePage === 'practice' ? 'active' : ''}>practice</a>
+        <a href="/contact/" class={activePage === 'contact' ? 'active' : ''}>contact</a>
+        <a href="/news/" class={activePage === 'news' ? 'active' : ''}>news</a>
+        <a href="/reference/" class={activePage === 'reference' ? 'active' : ''}>reference</a>
+      </nav>
     </div>
   </header>
 
