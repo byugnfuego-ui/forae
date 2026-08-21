@@ -63,13 +63,14 @@ const { title, activePage = "" } = Astro.props;
   <header>
     <div class="header-inner">
       <a class="logo" href="/">forae architects</a>
-      <nav class="primary">
-        <!-- Төгсгөлийн налуу зураасыг Astro-д зориулж хэвээр үлдээв -->
-        <a href="/practice/" class={activePage === 'practice' ? 'active' : ''}>practice</a>
-        <a href="/contact/" class={activePage === 'contact' ? 'active' : ''}>contact</a>
-        <a href="/news/" class={activePage === 'news' ? 'active' : ''}>news</a>
-        <a href="/reference/" class={activePage === 'reference' ? 'active' : ''}>reference</a>
-      </nav>
+     <nav class="primary">
+  <!-- Харьцангуй замаар холбож, найдвартай шилждэг болгов -->
+  <a href="./practice/" class={activePage === 'practice' ? 'active' : ''}>practice</a>
+  <a href="./contact/" class={activePage === 'contact' ? 'active' : ''}>contact</a>
+  <a href="./news/" class={activePage === 'news' ? 'active' : ''}>news</a>
+  <a href="./reference/" class={activePage === 'reference' ? 'active' : ''}>reference</a>
+</nav>
+
     </div>
   </header>
 
