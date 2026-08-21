@@ -1,1 +1,39 @@
 
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Practice — FORAE ARCHITECTS" activePage="practice">
+  <style>
+    main { max-width: 800px; padding: 64px 32px 0; }
+    .section-title { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--graphite); margin-bottom: 24px; }
+    .biography { font-size: 16px; line-height: 1.6; max-width: 680px; margin-bottom: 48px; }
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 32px; border-top: 1px solid var(--hairline); padding-top: 32px; }
+    .profile-item h3 { font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+    .profile-item p { font-size: 13px; color: var(--graphite); line-height: 1.5; }
+
+    @media (max-width: 560px) {
+      main { padding: 32px 18px 0; }
+      .profile-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+
+  <main>
+    <div class="section-title">About the Practice</div>
+    <div class="biography">
+      <p>FORAE ARCHITECTS нь орчин үеийн архитектур, хот төлөвлөлтийн чиглэлээр үйл ажиллагаа явуулдаг бүтээлч студи юм. Бид барилга байгууламжийг зөвхөн орон зай төдийгүй, байгаль орчин, хүмүүсийн амьдралын хэв маягтай уусах уран бүтээл гэж хардаг. Төсөл бүртээ материаллаг байдал, гэрэл сүүдрийн зохицол, минималист хэв маягийг шингээхийг зорьдог.</p>
+    </div>
+
+    <div class="section-title">Team / Founders</div>
+    <div class="profile-grid">
+      <div class="profile-item">
+        <h3>Нэр Наранбаатар</h3>
+        <p>Үүсгэн байгуулагч, Ахлах архитектор. ШУТИС-ийг Архитектур мэргэжлээр төгссөн. Олон улсын болон дотоодын томоохон төслүүд дээр 10 гаруй жил ажилласан туршлагатай.</p>
+      </div>
+      <div class="profile-item">
+        <h3>Бат Төмөр</h3>
+        <p>Хамтран үүсгэн байгуулагч, Концепци дизайн хариуцсан архитектор. Байгалийн материал болон уламжлалт хэв маягийг орчин үеийн архитектурт хөрвүүлэх чиглэлээр мэргэшсэн.</p>
+      </div>
+    </div>
+  </main>
+</Layout>
