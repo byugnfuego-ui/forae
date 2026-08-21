@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Хайрган Хана Байшин — FORAE ARCHITECTS">
+  <style>
+    main { width: 100%; padding: 48px 32px 0; }
+    .project-container { max-width: 900px; margin: 0 auto; }
+    .project-header { font-size: 14px; line-height: 1.6; margin-bottom: 48px; }
+    .project-title { font-weight: 500; text-decoration: underline; text-underline-offset: 3px; margin-bottom: 16px; display: block; }
+    .meta-line { color: var(--ink); }
+    .meta-label { color: var(--graphite); }
+    .project-image-wrap { width: 100%; margin-bottom: 32px; }
+    .project-image-wrap img { width: 100%; height: auto; display: block; }
+    .project-description { font-size: 14px; line-height: 1.7; color: var(--ink); max-width: 900px; font-weight: 400; text-align: justify; }
+
+    @media (max-width: 560px) {
+      main { padding: 24px 18px 0; }
+      .project-header { font-size: 13px; margin-bottom: 32px; }
+      .project-description { font-size: 13px; line-height: 1.6; }
+    }
+  </style>
+
+  <main>
+    <div class="project-container">
+      <div class="project-header">
+        <span class="project-title">Хайрган Хана Байшин atelier house, yangpyong</span>
+        <div class="meta-line"><span class="meta-label">location :</span> Төв аймаг, Монгол Улс</div>
+        <div class="meta-line"><span class="meta-label">year :</span> 2026, 01 - барилгын ажил үргэлжилж байна</div>
+        <div class="meta-line"><span class="meta-label">use :</span> Амины орон сууц single family house</div>
+        <div class="meta-line"><span class="meta-label">area :</span> 132m² (40 пён)</div>
+      </div>
+
+      <div class="project-image-wrap">
+        <img src="/project1.jpg" alt="Atelier House Architecture Model">
+      </div>
+
+      <div class="project-description">
+        Байгалийн тогтоцтой уусгаж, хамгийн бага зардлаар бүтээлч орон зайг бий болгох зорилготой амины орон сууцны төсөл. Тэгш хэмт төлөвлөлт болон хөнгөн модон бүтцийг ашигласан бөгөөд уламжлалт хэв маягийг орчин үеийн минималист архитектуртай хослуулсан. Designed as a cost-efficient single-story house with a symmetrical plan, the project employs light wood framing as its primary structural system.
+      </div>
+    </div>
+  </main>
+</Layout>
