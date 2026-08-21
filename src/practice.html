@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>practice — FORAE ARCHITECTS</title>
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff;
+    --ink:#161616;
+    --graphite:#7a7a75;
+    --hairline:#e6e5e0;
+    --sans:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    letter-spacing: -0.01em;
+  }
+  main{flex:1 0 auto; margin:0 auto; width:100%; max-width:760px;}
+  a{color:inherit; text-decoration:none;}
+
+  .header-inner{display:flex; align-items:center; justify-content:space-between; padding:20px 32px; gap:24px;}
+  .logo{font-size:16px; font-weight:500; letter-spacing:0.02em; text-transform:lowercase;}
+  nav.primary{display:flex; gap:32px; font-size:13px; letter-spacing:0.04em; font-weight:400; text-transform:lowercase;}
+  nav.primary a.active{color:var(--ink);}
+  nav.primary a:not(.active){color:var(--graphite);}
+  nav.primary a:hover{color:var(--ink);}
+
+  .page-wrap{padding:48px 32px 0;}
+  h1.page-title{font-size:13px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; color:var(--graphite); margin-bottom:40px;}
+
+  .bio-block{margin-bottom:40px;}
+  .bio-block h2{
+    font-size:12px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase;
+    color:var(--graphite); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--hairline);
+  }
+  .bio-block p{font-size:14px; line-height:1.75; color:var(--ink); margin-bottom:10px;}
+  .bio-block p.en{color:var(--graphite);}
+
+  footer{margin-top:80px; padding:24px 32px 32px; text-align:center;}
+  .copyright{font-size:12px; color:var(--graphite);}
+
+  @media (max-width:560px){
+    .header-inner{padding:14px 18px; flex-direction: column; align-items: flex-start; gap: 12px;}
+    nav.primary{gap: 16px;}
+    .page-wrap{padding:24px 18px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="/">forae architects</a>
+    <nav class="primary">
+      <a class="active" href="/practice">practice</a>
+      <a href="/contact">contact</a>
+      <a href="/news">news</a>
+      <a href="/reference">reference</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-wrap">
+    <h1 class="page-title">Practice</h1>
+
+    <div class="bio-block">
+      <h2>Намтар</h2>
+      <p>FORAE ARCHITECTS-ийг архитектор Б. Ганбаяр 2019 онд Улаанбаатар хотод үндэслэсэн. Тус студи орон нутгийн материал, барилгын энгийн бүтэц, орон зайн шулуун логикт тулгуурлан орон сууц, олон нийтийн барилга, интерьерийн төслүүд дээр ажилладаг.</p>
+      <p class="en">FORAE ARCHITECTS was founded in Ulaanbaatar in 2019 by architect B. Ganbayar. The studio works across residential, public, and interior projects, grounded in local material, structural clarity, and straightforward spatial logic.</p>
+    </div>
+
+    <div class="bio-block">
+      <h2>Боловсрол</h2>
+      <p>М.Архитектур, Улаанбаатарын Их Сургууль</p>
+      <p class="en">M.Arch, Ulaanbaatar University</p>
+    </div>
+
+    <div class="bio-block">
+      <h2>Ажлын туршлага</h2>
+      <p>2013–2019 — Архитекторын туслах, дотоодын хэд хэдэн архитектурын студид</p>
+      <p class="en">2013–2019 — Project architect, various local practices</p>
+    </div>
+
+    <div class="bio-block">
+      <h2>Уриа</h2>
+      <p>Материал, бүтэц, орон зайн энгийн харилцаанаас архитектурын шинж чанар бий болно гэж бид итгэдэг.</p>
+      <p class="en">We believe architectural character emerges from a plain, honest relationship between material, structure, and space.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p class="copyright">© 2026 forae architects</p>
+</footer>
+
+</body>
+</html>
