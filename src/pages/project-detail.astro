@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>House SAPIN — FORAE ARCHITECTS</title>
+<title>House Sapin — FORAE ARCHITECTS</title>
 <link rel="preconnect" href="https://googleapis.com">
 <link rel="preconnect" href="https://gstatic.com" crossorigin>
 <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -49,8 +49,23 @@
   .meta-table span.value{color:var(--ink);}
 
   .project-image{width:100%; margin-bottom:36px;}
-  .project-image img{width:100%; height:auto; display:block; background:#161616;}
+  .project-image img{width:100%; height:auto; display:block; background:#161616; cursor:zoom-in;}
   .project-image .caption{font-size:11px; color:var(--graphite); margin-top:8px;}
+
+  /* Lightbox: зураг дээр дарахад томроор харагдах */
+  .lightbox{
+    position:fixed; inset:0; background:rgba(22,22,22,0.92);
+    display:flex; align-items:center; justify-content:center;
+    padding:32px; cursor:zoom-out;
+    opacity:0; visibility:hidden; transition:opacity .2s ease;
+    z-index:100;
+  }
+  .lightbox.is-open{opacity:1; visibility:visible;}
+  .lightbox img{max-width:100%; max-height:100%; width:auto; height:auto; display:block;}
+  .lightbox .lightbox-close{
+    position:absolute; top:24px; right:32px; color:#fff; font-size:28px;
+    line-height:1; cursor:pointer; font-weight:300;
+  }
 
   .project-text p{font-size:14px; line-height:1.8; color:var(--ink); margin-bottom:14px;}
   .project-text p.en{color:var(--graphite);}
@@ -85,25 +100,27 @@
 
     <div class="project-head">
       <h1>House Sapin</h1>
-      <p class="en-title">House Sapin</p>
+      <p class="en-title">house sapin</p>
     </div>
 
     <div class="meta-table">
-      <p><span class="label">location</span><span class="value">Шаргаморьт</span></p>
+      <p><span class="label">location</span><span class="value">Шаргаморьт, Mongolia</span></p>
       <p><span class="label">year</span><span class="value">2026, 03 — construction in progress</span></p>
       <p><span class="label">use</span><span class="value">single family house</span></p>
       <p><span class="label">area</span><span class="value">60m²</span></p>
     </div>
 
-    <!-- Жинхэнэ зургаа /public/projects/ дотор байрлуулаад src-г солино уу -->
+    <!-- Жинхэнэ зургаа /public/projects/ дотор байрлуулаад доорх src-г солино уу.
+         Файлын нэрэнд зай (space) байвал линк эвдэрдэг тул нэрийг зурвасаар холбож бичих нь дээр
+         (жишээ нь: sapin-final-01.jpg). -->
     <div class="project-image">
-      <img src="/projects/FINAL 3.jpg" alt="001">
+      <img src="/projects/sapin-final-01.jpg" alt="House Sapin — render" class="lightbox-trigger">
       <p class="caption">render, 1:100</p>
     </div>
 
     <div class="project-text">
-      <p>Хайрган ханатай, дан давхар байшин бөгөөд гэр бүлийн амьдралын энгийн хэмнэлд тулгуурлан төлөвлөгдсөн. Дотоод орон зайг том цонхтой уулын харц руу нээж, гадна ханыг орон нутгийн хайрган чулуугаар өнгөлсөн нь барилгыг эргэн тойрны газарт нэгтгэдэг.</p>
-      <p class="en">A single-storey house with a gravel-clad exterior, planned around the plain rhythm of everyday family life. Large openings face the interior toward the surrounding hills, while the local gravel-stone cladding grounds the building in its site.</p>
+      <p>Шаргаморьтын нам гүм газарт байрлах бяцхан дан давхар байшин бөгөөд гэр бүлийн энгийн амьдралын хэмнэлд тулгуурлан төлөвлөгдсөн. Компакт хэмжээ, шулуун бүтэц, орчны газраа хүндэтгэсэн энгийн хэлбэрийг эрхэмлэсэн.</p>
+      <p class="en">A small single-storey house set in the quiet surroundings of Shargamort, planned around the plain rhythm of everyday family life. Its compact footprint and straightforward structure respect the modesty of its site.</p>
     </div>
   </div>
 </main>
@@ -111,6 +128,34 @@
 <footer>
   <p class="copyright">© 2026 forae architects</p>
 </footer>
+
+<!-- Lightbox: том зураг харуулах давхарга -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  document.querySelectorAll('.lightbox-trigger').forEach(function (img) {
+    img.addEventListener('click', function () {
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('is-open');
+    });
+  });
+
+  document.getElementById('lightbox').addEventListener('click', function () {
+    this.classList.remove('is-open');
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.getElementById('lightbox').classList.remove('is-open');
+    }
+  });
+</script>
 
 </body>
 </html>
