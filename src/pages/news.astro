@@ -40,11 +40,11 @@
   .page-wrap{padding:48px 32px 0;}
   h1.page-title{font-size:13px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; color:var(--graphite); margin-bottom:40px;}
 
-  .news-item{padding:20px 0; border-bottom:1px solid var(--hairline);}
-  .news-item:first-of-type{border-top:1px solid var(--hairline);}
-  .news-date{font-size:12px; color:var(--graphite); margin-bottom:6px;}
+  .news-item{padding:14px 0; display:flex; gap:16px; align-items:baseline;}
+  .news-date{flex:0 0 60px; font-size:12px; color:var(--graphite);}
+  .news-body{flex:1;}
   .news-item p{font-size:14px; line-height:1.7; color:var(--ink);}
-  .news-item p.en{color:var(--graphite); margin-top:4px;}
+  .news-item p.en{color:var(--graphite); margin-top:2px;}
 
   footer{margin-top:80px; padding:24px 32px 32px; text-align:center;}
   .copyright{font-size:12px; color:var(--graphite);}
@@ -76,20 +76,26 @@
 
     <div class="news-item">
       <p class="news-date">2026.08</p>
-      <p>«Хайрган Хана Байшин» төслийн барилгын ажил эхэллээ.</p>
-      <p class="en">Construction has begun on the "Gravel Wall House" project.</p>
+      <div class="news-body">
+        <p>«Хайрган Хана Байшин» төслийн барилгын ажил эхэллээ.</p>
+        <p class="en">Construction has begun on the "Gravel Wall House" project.</p>
+      </div>
     </div>
 
     <div class="news-item">
       <p class="news-date">2026.06</p>
-      <p>«Бетон Ном Сан» төсөл Эрдэнэт хотын нээлттэй уралдаанд 1-р байр эзэллээ.</p>
-      <p class="en">"Concrete Library" won 1st place in an open competition in Erdenet.</p>
+      <div class="news-body">
+        <p>«Бетон Ном Сан» төсөл Эрдэнэт хотын нээлттэй уралдаанд 1-р байр эзэллээ.</p>
+        <p class="en">"Concrete Library" won 1st place in an open competition in Erdenet.</p>
+      </div>
     </div>
 
     <div class="news-item">
       <p class="news-date">2026.03</p>
-      <p>«Модон Оффис Цамхаг» төсөл ашиглалтад орлоо.</p>
-      <p class="en">"Timber Office Tower" was completed and opened.</p>
+      <div class="news-body">
+        <p>«Модон Оффис Цамхаг» төсөл ашиглалтад орлоо.</p>
+        <p class="en">"Timber Office Tower" was completed and opened.</p>
+      </div>
     </div>
   </div>
 </main>
