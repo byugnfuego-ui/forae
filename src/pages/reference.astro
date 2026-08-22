@@ -27,7 +27,8 @@
     min-height:100vh;
     letter-spacing: -0.01em;
   }
-  main{flex:1 0 auto; margin:0 auto; width:100%; max-width:760px;}
+  /* Энэ хуудсанд текст өргөн байх шаардлагатай тул main-ий max-width-ийг нэмэгдүүлэв */
+  main{flex:1 0 auto; margin:0 auto; width:100%; max-width:1440px;}
   a{color:inherit; text-decoration:none;}
 
   .header-inner{display:flex; align-items:center; justify-content:space-between; padding:20px 32px; gap:24px;}
@@ -40,9 +41,39 @@
   .page-wrap{padding:48px 32px 0;}
   h1.page-title{font-size:13px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; color:var(--graphite); margin-bottom:40px;}
 
-  .ref-text{font-size:14px; line-height:1.85; color:var(--ink); max-width:640px;}
-  .ref-text p{margin-bottom:16px;}
-  .ref-text p.placeholder{color:var(--graphite); font-style:italic;}
+  .ref-text{font-size:14px; line-height:1.85; color:var(--ink); max-width:1200px;}
+
+  /* Ишлэлүүд — тус бүр өөрийн блок, дугаартай, хооронд нь зай гаргасан, зөв (upright) бичвэр */
+  .quote-item{
+    display:flex;
+    gap:16px;
+    margin-bottom:28px;
+    font-style:normal;
+    text-align:left;
+  }
+  .quote-item .q-num{
+    flex:0 0 32px;
+    color:var(--graphite);
+    font-size:13px;
+  }
+  .quote-item .q-text{flex:1; color:var(--ink);}
+  .quote-item .q-text .en{color:var(--graphite); display:block; margin-top:4px;}
+
+  .ref-section-title{
+    font-size:12px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase;
+    color:var(--graphite); margin:56px 0 24px; padding-bottom:8px; border-bottom:1px solid var(--hairline);
+  }
+
+  .biblio-item{
+    display:flex;
+    gap:16px;
+    margin-bottom:14px;
+    font-style:normal;
+    text-align:left;
+    font-size:13px;
+  }
+  .biblio-item .q-num{flex:0 0 32px; color:var(--graphite);}
+  .biblio-item .q-text{flex:1; color:var(--ink);}
 
   footer{margin-top:80px; padding:24px 32px 32px; text-align:center;}
   .copyright{font-size:12px; color:var(--graphite);}
@@ -51,6 +82,8 @@
     .header-inner{padding:14px 18px; flex-direction: column; align-items: flex-start; gap: 12px;}
     nav.primary{gap: 16px;}
     .page-wrap{padding:24px 18px 0;}
+    .quote-item, .biblio-item{gap:10px;}
+    .quote-item .q-num, .biblio-item .q-num{flex:0 0 22px;}
   }
 </style>
 </head>
@@ -72,109 +105,98 @@
   <div class="page-wrap">
     <h1 class="page-title">Reference</h1>
 
-    <!-- Энэ хуудас нь текстээр чөлөөтэй бөглөх нээлттэй орон зай.
-         Жишээ нь: хэвлэлд гарсан нийтлэл, шагнал, ном зүй, ишлэл гэх мэт. -->
     <div class="ref-text">
-      <p class="placeholder">1 Агуулга, шинж чанар, материал нь хэлбэрээ тодорхойлно. Нэг төвлөрсөн үзэл санаагаар хийгдээгүй, үзэл санаа тухайн зүйлийнхээ бүх хэсэгт шингээгүй байх юм бол юу ч тийм сайхан, төгс байж чадахгүй.
-2 PM: архитектороор ажиллахад, өөрөөсөө миний дотоод ертөнц хаана оршиж байгааг асуудаг. Архитектор нь ирээдүйд амьдрах юм уу(ирээдүйн орон зайн төлөвлөлтүүд ), өөр өөрийгөө бүрдүүлсэн өнгөрсөнтэйгөө хамт амьдардаг.
 
-3 Архитектурт байдаг өвөрмөц шинж агуулгаас улбаатай хэлбэрийг нээн, өөр юунд ч үл хүрэх бүтээлч хэлбэрийг эрэлхийлэн олох нь чухал.
+      <div class="quote-item"><span class="q-num">1</span><span class="q-text">Агуулга, шинж чанар, материал нь хэлбэрээ тодорхойлно. Нэг төвлөрсөн үзэл санаагаар хийгдээгүй, үзэл санаа тухайн зүйлийнхээ бүх хэсэгт шингээгүй байх юм бол юу ч тийм сайхан, төгс байж чадахгүй.</span></div>
 
-4 Амьд нам гүмийг олоогүй хот нь сүйрлийн замаар нам гүм байдлыг олдог.
+      <div class="quote-item"><span class="q-num">2</span><span class="q-text">PM: архитектороор ажиллахад, өөрөөсөө миний дотоод ертөнц хаана оршиж байгааг асуудаг. Архитектор нь ирээдүйд амьдрах юм уу (ирээдүйн орон зайн төлөвлөлтүүд), өөр өөрийгөө бүрдүүлсэн өнгөрсөнтэйгөө хамт амьдардаг.</span></div>
 
-5 План нь дотроос гадагшаа өрнөнө. Гадна тал нь дотор талын хариу юм.
-Архитектурын элемент нь гэрэл болон сүүдэр, хана болон орон зай.
-Тэдгээрийг байрлуулах нь гол зорилгын дэс дараа бөгөөд зорьж буй цаад санааны ангилал юм.
-Хүн төрөлхтөн нь газрын гадаргуугаас 1метр 70см зайд буй өөрийн нүдээр архитектурын бүтээлийг харна. Нүдээр ойртон халдаж чадах ба архитектурын хэсгүүдийг авч үзэх зорилтыг л өмнөө тавина.
-Хэрвээ архитектурын хэлээр хэлж болохооргүй санаа мэдрэгдэх юм бол планы хуурмаг байдалд автах ба санааны хүрээнд эндүүрлээс бардамнал хооронд төөрөгдөж планы дүрмээс гажихад хүрнэ.
+      <div class="quote-item"><span class="q-num">3</span><span class="q-text">Архитектурт байдаг өвөрмөц шинж агуулгаас улбаатай хэлбэрийг нээн, өөр юунд ч үл хүрэх бүтээлч хэлбэрийг эрэлхийлэн олох нь чухал.</span></div>
 
-6 Архитекторууд нь анхандаа өөрийн сэдлийн үр дүн байсан боловч одоо зайлшгүй хэм хэмжээний агуулгад баттай баригдаж дахин түүнийхээ хэрэгсэл болжээ.
+      <div class="quote-item"><span class="q-num">4</span><span class="q-text">Амьд нам гүмийг олоогүй хот нь сүйрлийн замаар нам гүм байдлыг олдог.</span></div>
 
-7 Хүн бол адгуус амьтан, ер бусын хүн хоёрын хооронд, ангал дээр татсан олс юм...  Би амь үрэгдэхээс өөрөөр амьдарч чаддаггүй хүмүүст хайртай. Учир нь тэд гүүрээр гарч байна.
+      <div class="quote-item"><span class="q-num">5</span><span class="q-text">План нь дотроос гадагшаа өрнөнө. Гадна тал нь дотор талын хариу юм. Архитектурын элемент нь гэрэл болон сүүдэр, хана болон орон зай. Тэдгээрийг байрлуулах нь гол зорилгын дэс дараа бөгөөд зорьж буй цаад санааны ангилал юм. Хүн төрөлхтөн нь газрын гадаргуугаас 1 метр 70 см зайд буй өөрийн нүдээр архитектурын бүтээлийг харна. Нүдээр ойртон халдаж чадах ба архитектурын хэсгүүдийг авч үзэх зорилтыг л өмнөө тавина. Хэрвээ архитектурын хэлээр хэлж болохооргүй санаа мэдрэгдэх юм бол планы хуурмаг байдалд автах ба санааны хүрээнд эндүүрлээс бардамнал хооронд төөрөгдөж планы дүрмээс гажихад хүрнэ.</span></div>
 
-8 Big alone is not bad, ugly is bad, badly proportioned is bad.
+      <div class="quote-item"><span class="q-num">6</span><span class="q-text">Архитекторууд нь анхандаа өөрийн сэдлийн үр дүн байсан боловч одоо зайлшгүй хэм хэмжээний агуулгад баттай баригдаж дахин түүнийхээ хэрэгсэл болжээ.</span></div>
 
-9 Бүтээл /작품/ Бүтээхийн 작 ба юм гэдгийн 품. 작 гэдэг нь гарт баригддаг зүйл биш, толгой доторх туурвил, спирит, дур хүсэл юм уу өөрийн зураг зурах уг шалтгаан ийм зүйл нь “작”. 품 гэх нь бодитоор зураг зурж буй бодит цаг дор бодит материаллаг зүйл, эцэст нь үлдэх зүйл, эдгээр нь нэгдэж байж бүтээл бөгөөд 작 ба 품 гэх хэсэгүүдийг авч үзвэл 5:5 гэвэл бас үгүй 8:2оор 작 нь цойлох хэрэгтэй.
+      <div class="quote-item"><span class="q-num">7</span><span class="q-text">Хүн бол адгуус амьтан, ер бусын хүн хоёрын хооронд, ангал дээр татсан олс юм... Би амь үрэгдэхээс өөрөөр амьдарч чаддаггүй хүмүүст хайртай. Учир нь тэд гүүрээр гарч байна.</span></div>
 
-10 Үзэгчдийг бас голмоор юм байна. Үзэгчийн төвшин гэж юм бай-наадаа, тэр төвшингийн асуудал .
+      <div class="quote-item"><span class="q-num">8</span><span class="q-text">Big alone is not bad, ugly is bad, badly proportioned is bad.</span></div>
 
-11 Сэдвийг нүүрс шиг залгиж
-    Сэрэхүйн зууханд шатааж шинийг сүлэх
-   Шүүдэр тоолон гэгээ цацах
-    Би нүүдлийн цахилгаан станц
+      <div class="quote-item"><span class="q-num">9</span><span class="q-text">Бүтээл /작품/ — Бүтээхийн 작 ба юм гэдгийн 품. 작 гэдэг нь гарт баригддаг зүйл биш, толгой доторх туурвил, спирит, дур хүсэл юм уу өөрийн зураг зурах уг шалтгаан ийм зүйл нь "작". 품 гэх нь бодитоор зураг зурж буй бодит цаг дор бодит материаллаг зүйл, эцэст нь үлдэх зүйл, эдгээр нь нэгдэж байж бүтээл бөгөөд 작 ба 품 гэх хэсгүүдийг авч үзвэл 5:5 гэвэл бас үгүй, 8:2-оор 작 нь давамгайлах хэрэгтэй.</span></div>
 
-12 Хэт диатоник хэмнэл, хүчтэй, гайхалтай хэмнэл, уянгалаг тод байдал, энгийн бөгөөд ямар ч хольцгүй зохицол, хурц тод өнгө, хөгжмийн энгийн бөгөөд ил тод байдал, албан ёсны бүтцийн тогтвортой байдал
+      <div class="quote-item"><span class="q-num">10</span><span class="q-text">Үзэгчдийг бас голмоор юм байна. Үзэгчийн төвшин гэж юм байна, тэр төвшингийн асуудал.</span></div>
 
-13 Гоо үзэсгэлэн нь уур амьсгалд байна.
+      <div class="quote-item"><span class="q-num">11</span><span class="q-text">Сэдвийг нүүрс шиг залгиж, сэрэхүйн зууханд шатааж шинийг сүлэх, шүүдэр тоолон гэгээ цацах. Би нүүдлийн цахилгаан станц.</span></div>
 
-14 Захиалагчыг итгүүлэхийн өмнө өөрийгөө ятгах хэрэгтэй. Өөрийгөө өөртөө ятгаж чадах юм бол үлдсэн процесс нь маш амархан үргэлжлэнэ. Сайн төлөвлөлт нь заримдаа нарийн төвөгтэй байдалаас улбаалж илүү сонирхолтой болдог. Учир нь олон төрлийн өнцгөөс асуулт асууж болохоор төвшинд хүрнэ.
+      <div class="quote-item"><span class="q-num">12</span><span class="q-text">Хэт диатоник хэмнэл, хүчтэй, гайхалтай хэмнэл, уянгалаг тод байдал, энгийн бөгөөд ямар ч хольцгүй зохицол, хурц тод өнгө, хөгжмийн энгийн бөгөөд ил тод байдал, албан ёсны бүтцийн тогтвортой байдал.</span></div>
 
-15 Нарийн төвөгтэй сэтгэлгээний энгийн илэрхийлэл.
+      <div class="quote-item"><span class="q-num">13</span><span class="q-text">Гоо үзэсгэлэн нь уур амьсгалд байна.</span></div>
 
-16 Декартын эргэлзэж чаддаггүй ганц зүйл бол өөрийнх нь оршиж буй явдал. Хэрэв тэр эргэлзэж байгаа юм бол чухамхүү тэр л эргэлзэж байгаа хэрэг. Тэгэхээр тэр оршин байна гэсэн үг. ‘Би сэтгэжбайна, тийм учраас оршин байна’
+      <div class="quote-item"><span class="q-num">14</span><span class="q-text">Захиалагчыг итгүүлэхийн өмнө өөрийгөө ятгах хэрэгтэй. Өөрийгөө өөртөө ятгаж чадах юм бол үлдсэн процесс нь маш амархан үргэлжлэнэ. Сайн төлөвлөлт нь заримдаа нарийн төвөгтэй байдалаас улбаалж илүү сонирхолтой болдог. Учир нь олон төрлийн өнцгөөс асуулт асууж болохоор төвшинд хүрнэ.</span></div>
 
-17 Өөрсдөдөө заяагдсан зүй ёсны үнэт зүйлсээ бусдад булаалгачихсан атлаа харамссан ч үгүй, уурласан ч үгүй, буруу зүйлд бууж өгсөн хэр нь бас ичсэн ч үгүй.
+      <div class="quote-item"><span class="q-num">15</span><span class="q-text">Нарийн төвөгтэй сэтгэлгээний энгийн илэрхийлэл.</span></div>
 
-18 Үргэлж нүүдэллэж байдаг нүүдэлчид нь газар биш ‘цаг хугацааг’ санадаг, хүүхдүүд төрсөн ч ямар улиралд төрснөөр санадаг.
+      <div class="quote-item"><span class="q-num">16</span><span class="q-text">Декартын эргэлзэж чаддаггүй ганц зүйл бол өөрийнх нь оршиж буй явдал. Хэрэв тэр эргэлзэж байгаа юм бол чухамхүү тэр л эргэлзэж байгаа хэрэг. Тэгэхээр тэр оршин байна гэсэн үг. "Би сэтгэж байна, тийм учраас оршин байна".</span></div>
 
-19 Уран бүтээл бол юуны өмнө сэтгэл хөдлөл юм. 20 Урлагийн бүтээл бол эцэс хязгааргүй зүйл. Түүний дотор хорвоо тэр чигээрээ багтана.21 ...Тэд нар өвдөлт юм уу хэцүү үеийг туулаагүй. Өвдөлтгүйгээр Урлаг нь бүтээгддэггүй. Урлаг нь амьдарч, амьсгалж буй сэтгэлийн орилоон юм. Тэд нар өөрсдөө сэтгэл зүрх тээж яваа гэдгээ хүртэл мэдэхгүйн улмаас тэдний сэтгэл нь эцэстээ амьд биш юм.
+      <div class="quote-item"><span class="q-num">17</span><span class="q-text">Өөрсдөдөө заяагдсан зүй ёсны үнэт зүйлсээ бусдад булаалгачихсан атлаа харамссан ч үгүй, уурласан ч үгүй, буруу зүйлд бууж өгсөн хэр нь бас ичсэн ч үгүй.</span></div>
 
-22 Хүч чадал, эмзэг байдал нь Серрагийн бүтээлүүдийн гол цөм юм. Тэд салхи, элс, наранд шаналж, тэнгэр өөд бардам гарна. Дараа нь ган нь гандах хүртлээ тасралтгүй хувьслын явцад алхимийн зотон шиг шар, улаан, улбар шар, хүрэн, хув зэрэг өнгийг авдаг.... " Би уран баримлын объектуудыг орон зайд байрлуулахыг хүсэхгүй, харин бүхэл бүтэн орон зайг уран баримал болгохыг хүсч байна "
+      <div class="quote-item"><span class="q-num">18</span><span class="q-text">Үргэлж нүүдэллэж байдаг нүүдэлчид нь газар биш "цаг хугацааг" санадаг, хүүхдүүд төрсөн ч ямар улиралд төрснөөр санадаг.</span></div>
 
-23 Уран бүтээлчийг бүтээлээс нь салган ойлгох гэсэн оролдлого нь улирсан үзэл юм. Түүний  бүтээлүүдэд нэгэн түгээмэл чанар харагдана. Түүний бүх бүтээлүүдэд тэр өөрөө харагдана. Цаг хугацаа зогссон мэт, эсвэл цаг өөрөө түр зуур амсхийж буй мэт. Уран бүтээлчийн өөртөө үнэнч байдлыг та Репиний Дүрслэх Урлагийн Академи төгссөнөөс хойших (1984) бүтээлүүдийн өнгө аясаас нь харж болно.
+      <div class="quote-item"><span class="q-num">19</span><span class="q-text">Уран бүтээл бол юуны өмнө сэтгэл хөдлөл юм.</span></div>
 
-Бүтээлийн сэдэв нь өргөн, ямар нэг үзэл суртал, урсгал чиглэлд үл хамаарсан, тухайн цаг хугацааны бүтээгдэхүүн гэхээсээ илүү тухайн бие хүний дотоод сэтгэлийн тусгал илүү харагдана. Дан ялангуяа, түүх, нийгэм, ѐс заншлын нөлөө урлагт нь маш их нөлөөлдөг Монгол орны хувьд, бие хүнээ хамгаалан орших нь, асар төвэгтэй үйлдэл юм. Зарим уран бүтээлчид, нийгэмтэйгээ илээр тэрсэлдэн амьдардаг бол, түүний хувьд бараг нуугдмал гэмээр хэлбэрээр бүтээлээ туурвиж иржээ. Социализмын үед төрөн, өсөж, нийгмийн ташуурсан үзэл суртал ямар үр дагавартай байдгыг биеэр үзсэн болохоор тэр биз. Тэр нийгмийн нэг хэсэг боловч, нийгмээс гадуур орших мэт. Уран бүтээлч бүрийн амьдралдаа, бүтээл туурвилдаа хандах хандлага нь өөр. Тиймээс, түүнийг танихын тулд, та бүтээлийг нь хар. Ойлгох гээд үз. Юу бодож, юу сэтгэж ингэж бүтээсэн юм бол гэж өөрөөсөө асуу.
+      <div class="quote-item"><span class="q-num">20</span><span class="q-text">Урлагийн бүтээл бол эцэс хязгааргүй зүйл. Түүний дотор хорвоо тэр чигээрээ багтана.</span></div>
 
-20-р зууны сүүл үе, 21-р зууны эхэн үеийн дүрслэх урлагийн мөн чанар бол сэтгэлгээ голлосон эсвэл давамгайлсан байдал билээ. Бидний үеийн залуу уран бүтээлчдэд дутагддаг нэг тал бол сэтгэлгээ нь байсан ч, тэр концепцоо бүтээлдээ бүрэн дүүрэн буулгаж чадахгүй байгаа явдал юм. Энэ талаа  далдлахын тулд, Барууны бүтээлүүдээс хуулбарлан нь шинэ-ийг бүтээх хүсэлд автан, сонин содон хэлбэртэй харагдаж л байвал зорилгодоо хүрэх юм шиг ойлгоод байдаг...Америкийн алдарт уран бүтээлч Жеоржиа ОјКийф (1887-1986): Урлагт өөрийн гэсэн ертөнцийг бүтээхэд зориг шаардлагатай гэж нэгэнтээ хэлж байжээ. Өөрийнхөөрөө бүтээлээ туурвих ямар түвэгтэй гэдгийг ганцхан уран бүтээлч хүн биш, хүн бүр ойлгох боломжтой гэж би бодож байна. Өөрийнхөөрөө байх нь зөвхөн урлагийн хүмүүст биш орчин цагийн хүмүүст тулгараад байгаа сэтгэлзүйн томоохон асуудлуудын нэг юм.
+      <div class="quote-item"><span class="q-num">21</span><span class="q-text">...Тэд нар өвдөлт юм уу хэцүү үеийг туулаагүй. Өвдөлтгүйгээр Урлаг нь бүтээгддэггүй. Урлаг нь амьдарч, амьсгалж буй сэтгэлийн орилоон юм. Тэд нар өөрсдөө сэтгэл зүрх тээж яваа гэдгээ хүртэл мэдэхгүйн улмаас тэдний сэтгэл нь эцэстээ амьд биш юм.</span></div>
 
-24 It is a little fatalistic on my part, but I always took the position: You cannot ask a very good  architect to build a building and then tell him what to do. If you want to dictate how a house should be like, get a mediocre architect.
+      <div class="quote-item"><span class="q-num">22</span><span class="q-text">Хүч чадал, эмзэг байдал нь Серрагийн бүтээлүүдийн гол цөм юм. Тэд салхи, элс, наранд шаналж, тэнгэр өөд бардам гарна. Дараа нь ган нь гандах хүртлээ тасралтгүй хувьслын явцад алхимийн зотон шиг шар, улаан, улбар шар, хүрэн, хув зэрэг өнгийг авдаг.... "Би уран баримлын объектуудыг орон зайд байрлуулахыг хүсэхгүй, харин бүхэл бүтэн орон зайг уран баримал болгохыг хүсч байна."</span></div>
 
-Энэ нь миний хувьд бага зэрэг хор хөнөөлтэй, гэхдээ би үргэлж ийм байр суурийг баримталдаг: Та маш сайн архитектороос барилга барихыг гуйж, дараа нь түүнд юу хийхийг хэлж болохгүй. Хэрэв та байшин ямар байх ёстойг зааж өгөхийг хүсч байвал дунд зэргийн архитектор аваарай.
+      <div class="quote-item"><span class="q-num">23</span><span class="q-text">Уран бүтээлчийг бүтээлээс нь салган ойлгох гэсэн оролдлого нь улирсан үзэл юм. Түүний бүтээлүүдэд нэгэн түгээмэл чанар харагдана. Түүний бүх бүтээлүүдэд тэр өөрөө харагдана. Цаг хугацаа зогссон мэт, эсвэл цаг өөрөө түр зуур амсхийж буй мэт. Уран бүтээлчийн өөртөө үнэнч байдлыг та Репиний Дүрслэх Урлагийн Академи төгссөнөөс хойших (1984) бүтээлүүдийн өнгө аясаас нь харж болно.<br><br>Бүтээлийн сэдэв нь өргөн, ямар нэг үзэл суртал, урсгал чиглэлд үл хамаарсан, тухайн цаг хугацааны бүтээгдэхүүн гэхээсээ илүү тухайн бие хүний дотоод сэтгэлийн тусгал илүү харагдана. Дан ялангуяа, түүх, нийгэм, ёс заншлын нөлөө урлагт нь маш их нөлөөлдөг Монгол орны хувьд, бие хүнээ хамгаалан орших нь асар төвэгтэй үйлдэл юм. Зарим уран бүтээлчид нийгэмтэйгээ илээр тэрсэлдэн амьдардаг бол, түүний хувьд бараг нуугдмал гэмээр хэлбэрээр бүтээлээ туурвиж иржээ. Социализмын үед төрөн, өсөж, нийгмийн ташуурсан үзэл суртал ямар үр дагавартай байдгыг биеэр үзсэн болохоор тэр биз. Тэр нийгмийн нэг хэсэг боловч, нийгмээс гадуур орших мэт. Уран бүтээлч бүрийн амьдралдаа, бүтээл туурвилдаа хандах хандлага нь өөр. Тиймээс, түүнийг танихын тулд, та бүтээлийг нь хар. Ойлгох гээд үз. Юу бодож, юу сэтгэж ингэж бүтээсэн юм бол гэж өөрөөсөө асуу.<br><br>20-р зууны сүүл үе, 21-р зууны эхэн үеийн дүрслэх урлагийн мөн чанар бол сэтгэлгээ голлосон эсвэл давамгайлсан байдал билээ. Бидний үеийн залуу уран бүтээлчдэд дутагддаг нэг тал бол сэтгэлгээ нь байсан ч, тэр концепцоо бүтээлдээ бүрэн дүүрэн буулгаж чадахгүй байгаа явдал юм. Энэ талаа далдлахын тулд, Барууны бүтээлүүдээс хуулбарлан шинийг бүтээх хүсэлд автан, сонин содон хэлбэртэй харагдаж л байвал зорилгодоо хүрэх юм шиг ойлгоод байдаг... Америкийн алдарт уран бүтээлч Жеоржиа О'Кийф (1887–1986): Урлагт өөрийн гэсэн ертөнцийг бүтээхэд зориг шаардлагатай гэж нэгэнтээ хэлж байжээ. Өөрийнхөөрөө бүтээлээ туурвих ямар түвэгтэй гэдгийг ганцхан уран бүтээлч хүн биш, хүн бүр ойлгох боломжтой гэж би бодож байна. Өөрийнхөөрөө байх нь зөвхөн урлагийн хүмүүст биш, орчин цагийн хүмүүст тулгараад байгаа сэтгэлзүйн томоохон асуудлуудын нэг юм.</span></div>
 
-25  설계한  건물에서  특정  소재의  특정한  의미를  성공적으로  도출했을  때,  감각이  포출된다.
+      <div class="quote-item"><span class="q-num">24</span><span class="q-text">It is a little fatalistic on my part, but I always took the position: You cannot ask a very good architect to build a building and then tell him what to do. If you want to dictate how a house should be like, get a mediocre architect.<span class="en">Энэ нь миний хувьд бага зэрэг хор хөнөөлтэй, гэхдээ би үргэлж ийм байр суурийг баримталдаг: Та маш сайн архитектороос барилга барихыг гуйж, дараа нь түүнд юу хийхийг хэлж болохгүй. Хэрэв та байшин ямар байх ёстойг зааж өгөхийг хүсч байвал дунд зэргийн архитектор аваарай.</span></span></div>
 
-Төлөвлөсөн барилгын  тухайлсан материалын тухайлсан утгыг амжилттайгаар олборлох үед,  мэдрэмж илэрдэг.
+      <div class="quote-item"><span class="q-num">25</span><span class="q-text">설계한 건물에서 특정 소재의 특정한 의미를 성공적으로 도출했을 때, 감각이 포출된다.<span class="en">Төлөвлөсөн барилгын тухайлсан материалын тухайлсан утгыг амжилттайгаар олборлох үед, мэдрэмж илэрдэг.</span></span></div>
 
-26  “A great building must begin with the immeasurable, must go through measurable means when it is being designed, and in the end must be unmeasured.”
+      <div class="quote-item"><span class="q-num">26</span><span class="q-text">"A great building must begin with the immeasurable, must go through measurable means when it is being designed, and in the end must be unmeasured."<span class="en">Агуу барилга нь хэмжээлшгүй зүйлээс эхэлж хэмжигдэхүйц арга хэрэгслээр дамжин бий болж, эцэст нь хэмжигдэхүүнгүй болох ёстой.</span></span></div>
 
-Агуу барилга нь  хэмжээлшгүй зүйлээс эхэлж  хэмжигдэхүйц  арга хэрэгслээр дамжин бий болж эцэст нь хэмжигдэхүүнгүй болох ёстой.
+      <div class="quote-item"><span class="q-num">27</span><span class="q-text">Chandigarh is a great experiment in India. I do not like every building in Chandigarh. I like some of them very much. I like the general conception of the township very much but, above all, I like the creative approach, thinking in new terms, of light and air and ground and water and human beings.<span class="en">Чандигарх бол Энэтхэгт хийсэн гайхалтай туршилт юм. Би Чандигарх дахь барилга болгонд дургүй. Тэдний зарим нь надад маш их таалагддаг. Хотхоны тухай ерөнхий ойлголт надад маш их таалагддаг ч хамгийн гол нь гэрэл, агаар, газар, ус, хүний тухай шинэлэг ойлголтоор сэтгэх бүтээлч хандлага надад таалагддаг.</span></span></div>
 
-27 Chandigarh is a great experiment in India. I do not like every building in Chandigarh. I like some of them very much. I like the general conception of the township very much but, above all, i like the creative appraoch, thinking in new terms, of light and air and ground and water and human beings.
+      <div class="quote-item"><span class="q-num">28</span><span class="q-text">— I'm here to stop your heart! I'm not here to make pretty pictures!<span class="en">— Би чиний зүрхийг зогсоохоор ирсэн! Би гоё зураг хийх гэж ирээгүй!</span></span></div>
 
-Чандигарх бол Энэтхэгт хийсэн гайхалтай туршилт юм. Би Чандигарх дахь барилга болгонд дургүй. Тэдний зарим нь надад маш их таалагддаг. Хотхоны тухай ерөнхий ойлголт надад маш их таалагддаг ч хамгийн гол нь гэрэл, агаар, газар, ус, хүний тухай шинэлэг ойлголтоор сэтгэх бүтээлч хандлага надад таалагддаг.
-
-28 - im here to stop your heart! i’m not here to make pretty pictures!
-   - Би чиний зүрхийг зогсоохоор ирсэн! Би гоё зураг хийх гэж ирээгүй!
-
-
-
-1 The Fountainhead  Novel by Ayn Rand
-2 Architecture Dialogues: Positions-Concepts-Vision MarcAngélil, JørgHimmelreich
-3 Архитектор Буджавын Чимэд Дашийн Бат. Гүндэвийн Туяа
-4 Max Picard
-5 Vers une architecture Le Corbusier
-6 Sobre el concepto de arbitrariedad en arquitectura Rafael Moneo
-7 Thus Spoke Zarathustra: A Book for All and None Friedrich Nietzsche
-8 Mies Goes Future   Peter Märkli
-9 Hyung Koo Kang
-10 Begz Baljinyam Director
-11 Bavuu Lhagvasuren Mongolian writer
-12 André Buchareschliev ︎︎︎ Igor Stravinsky
-13 Luigi Snozzi
-14 Herzog & de Meuron 예술에서 세계 건축으로
-15 Mark Rothko Major Works 16 Philosophy Mel Thompson
-17 우리들의 일그러진 영웅 이문열
-19 Анри Бергсон
-20 Освальд Шпенглер
-21 Ле корбюзьегийн Чарльз Л'Эплаттеньерт бичсэн захидал
-22 Death of Richard Serra, the artist who turned sculpture into architecture Text by Thibaut Wychowanok
-23 “Цагааны сүхээ” Ц.ЦЭНДПҮРЭВ/Ph.D./ВАНЖИЛ Урлагийн төв
-24 MARKUS BREITSCHMID ON MANAHOAC HOUSE BY VALERIO OLGIATI
-25 Peter Zumthor,  Architektur  Denken, 2010 ,Birkhauser  Verlag  GmbH, Basel
-26 Louis  Kahn
-27 Jawaharlal Nehru wrote for the opening in 1959
-28  Mark Rothko</p>
     </div>
+
+    <p class="ref-section-title">References</p>
+
+    <div class="ref-text">
+      <div class="biblio-item"><span class="q-num">1</span><span class="q-text">The Fountainhead — Novel by Ayn Rand</span></div>
+      <div class="biblio-item"><span class="q-num">2</span><span class="q-text">Architecture Dialogues: Positions-Concepts-Vision — Marc Angélil, Jörg Himmelreich</span></div>
+      <div class="biblio-item"><span class="q-num">3</span><span class="q-text">Архитектор Буджавын Чимэд, Дашийн Бат, Гүндэвийн Туяа</span></div>
+      <div class="biblio-item"><span class="q-num">4</span><span class="q-text">Max Picard</span></div>
+      <div class="biblio-item"><span class="q-num">5</span><span class="q-text">Vers une architecture — Le Corbusier</span></div>
+      <div class="biblio-item"><span class="q-num">6</span><span class="q-text">Sobre el concepto de arbitrariedad en arquitectura — Rafael Moneo</span></div>
+      <div class="biblio-item"><span class="q-num">7</span><span class="q-text">Thus Spoke Zarathustra: A Book for All and None — Friedrich Nietzsche</span></div>
+      <div class="biblio-item"><span class="q-num">8</span><span class="q-text">Mies Goes Future — Peter Märkli</span></div>
+      <div class="biblio-item"><span class="q-num">9</span><span class="q-text">Hyung Koo Kang</span></div>
+      <div class="biblio-item"><span class="q-num">10</span><span class="q-text">Begz Baljinyam — Director</span></div>
+      <div class="biblio-item"><span class="q-num">11</span><span class="q-text">Bavuu Lhagvasuren — Mongolian writer</span></div>
+      <div class="biblio-item"><span class="q-num">12</span><span class="q-text">André Buchareschliev — Igor Stravinsky</span></div>
+      <div class="biblio-item"><span class="q-num">13</span><span class="q-text">Luigi Snozzi</span></div>
+      <div class="biblio-item"><span class="q-num">14</span><span class="q-text">Herzog & de Meuron — 예술에서 세계 건축으로</span></div>
+      <div class="biblio-item"><span class="q-num">15</span><span class="q-text">Mark Rothko — Major Works</span></div>
+      <div class="biblio-item"><span class="q-num">16</span><span class="q-text">Philosophy — Mel Thompson</span></div>
+      <div class="biblio-item"><span class="q-num">17</span><span class="q-text">우리들의 일그러진 영웅 — 이문열</span></div>
+      <div class="biblio-item"><span class="q-num">19</span><span class="q-text">Анри Бергсон</span></div>
+      <div class="biblio-item"><span class="q-num">20</span><span class="q-text">Освальд Шпенглер</span></div>
+      <div class="biblio-item"><span class="q-num">21</span><span class="q-text">Ле Корбюзьегийн Чарльз Л'Эплаттеньерт бичсэн захидал</span></div>
+      <div class="biblio-item"><span class="q-num">22</span><span class="q-text">Death of Richard Serra, the artist who turned sculpture into architecture — Text by Thibaut Wychowanok</span></div>
+      <div class="biblio-item"><span class="q-num">23</span><span class="q-text">"Цагааны сүхээ" — Ц. Цэндпүрэв, Ph.D. / Ванжил Урлагийн төв</span></div>
+      <div class="biblio-item"><span class="q-num">24</span><span class="q-text">Markus Breitschmid on Manahoac House by Valerio Olgiati</span></div>
+      <div class="biblio-item"><span class="q-num">25</span><span class="q-text">Peter Zumthor, Architektur Denken, 2010, Birkhäuser Verlag GmbH, Basel</span></div>
+      <div class="biblio-item"><span class="q-num">26</span><span class="q-text">Louis Kahn</span></div>
+      <div class="biblio-item"><span class="q-num">27</span><span class="q-text">Jawaharlal Nehru — wrote for the opening in 1959</span></div>
+      <div class="biblio-item"><span class="q-num">28</span><span class="q-text">Mark Rothko</span></div>
+    </div>
+
   </div>
 </main>
 
